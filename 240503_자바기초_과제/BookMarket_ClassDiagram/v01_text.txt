@@ -1,0 +1,94 @@
+Projact : BookMarket
+
+#Package : bookmarket
+
+BookMarket
+------
++ main(String[]): void //model, view, controller 생성 -> controller.start()
+
+
+#Package : bookmarket_controller
+
+BookMarketController
+- view: onsoleView
+- mBookStorage: BookStorage
+- mCart: Cart
+- menuList: String[]
+------
++ start(): void
++ resetCart(): void
++ addBook2Cart(): void
++ viewCart(): void
++ viewBookInfo(): void
+
+
+#Package : bookmarket_model
+
+BookStorage
+- bookList: Book[]
+------
++ getNumBooks(): int
++ getBookInfo(int): String
++ inValidBook(int): boolean
++ getBookId(int bookId): Book
+
+Book
+- bookId: int
+- title: String
+- author: String
+- publisher: String
+- price: int
+------
++ getBookId(): int
++ getTitle(): String
++ getAuthor(): String
++ getPublisher(): String
++ getPrice(): int
++ toString(): String //@Override
+
+CartItem
+- book: Book
+- quantity: int
+------
++ getBook(): Book
++ setBook(Book): void
++ getQuantity(): int
++ setQuantity(int): void
++ addQuantity(int): void
++ toString(): String //@Override
+
+Cart
+- itemList: ArrayList<CartItem> = new ArrayList<>()
+- numItems: int = 0
+------
++ isEmpty(): boolean
++ getItemList(): ArrayList<CartItem>
++ setItemList(ArrayList<CartItem>): void
++ getNumItems(): int
++ setNumItems(int): void
++ getItemInfo(int): String
++ addItem(Book): void
++ getCartItem(Book): CartItem
++ resetCart(): void
+
+
+#Package : bookmarket_view
+
+ConsoleView
+------
++ displayWelcome(): void
++ selectMenu(String[]): int
++ displayMenu(String[]): void
++ displayBookInfo(BookStorage): void
++ showMessage(String): void
++ displayCart(Cart): void
++ askConfirm(String, String): boolean
++ selectBookId(BookStorage): int
+
+
+
+
+
+
+
+
