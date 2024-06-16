@@ -1,0 +1,39 @@
+SwP.java:6: error: class Scheduler is public, should be declared in a file named Scheduler.java
+public class Scheduler {
+       ^
+Scheduler.java:20: error: cannot find symbol
+  List<SwP> rQ = new CopyOnWriteArrayList<>();
+       ^
+  symbol:   class SwP
+  location: class Scheduler
+Scheduler.java:23: error: cannot find symbol
+  void insert(SwP p){
+              ^
+  symbol:   class SwP
+  location: class Scheduler
+Scheduler.java:35: error: cannot find symbol
+  void log(SwP p) {
+           ^
+  symbol:   class SwP
+  location: class Scheduler
+Scheduler.java:10: error: cannot find symbol
+    s.insert(new SwP(1, 7));
+                 ^
+  symbol:   class SwP
+  location: class Scheduler
+Scheduler.java:14: error: cannot find symbol
+    s.insert(new SwP(2, 3));
+                 ^
+  symbol:   class SwP
+  location: class Scheduler
+Scheduler.java:16: error: cannot find symbol
+    s.insert(new SwP(3, 1));
+                 ^
+  symbol:   class SwP
+  location: class Scheduler
+Scheduler.java:42: error: cannot find symbol
+        for (SwP p : rQ) {
+             ^
+  symbol:   class SwP
+  location: class Scheduler
+8 errors
