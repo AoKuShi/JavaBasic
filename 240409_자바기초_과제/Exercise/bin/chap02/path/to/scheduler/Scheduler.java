@@ -17,14 +17,13 @@ public class Scheduler {
       s.sleep(1000);
       s.insert(new SwP(sc.nextInt(), sc.nextInt()));
     }
-
   }
 
-  List<SwP> readQ = new CopyOnWriteArrayList<>();
-  ExecutorService runT = Executors.newSingleThreadExecutor();
+  List<SwP> sl = new CopyOnWriteArrayList<>();
+  ExecutorService es = Executors.newSingleThreadExecutor();
 
   void insert(SwP p){
-    readQ.add(p);
+    sl.add(p);
   }
 
   void sleep(int i) {
@@ -36,24 +35,22 @@ public class Scheduler {
   }
 
   void start() {
-    runT.execute(() -> {
-      while (readQ.size() != 0) {
-        for (SwP p : readQ) {
-          System.out.println(p + " is running " + readQ);
+    es.execute(() -> {
+      while (sl.size() != 0) {
+        for (SwP p : sl) {
+          System.out.println(p + " is running " + sl);
           sleep(1000);
           p.time--;
-
+          
           if (p.time == 0) {
-            readQ.removeIf(j -> j.time == 0);
+            sl.removeIf(j -> j.time == 0);
           }
         }
       }
 
-      runT.shutdown();
+      es.shutdown();
       System.exit(0);
 
     });
   }
 }
-
-
