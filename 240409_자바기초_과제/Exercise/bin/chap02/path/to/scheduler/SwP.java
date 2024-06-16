@@ -4,9 +4,9 @@ public class SwP {
   public int PID;
   public int time;
   
-  public SwP(int PID, int eTime) {
+  public SwP(int PID, int time) {
     this.PID = PID;
-    this.time = eTime;
+    this.time = time;
   }
 
   @Override
